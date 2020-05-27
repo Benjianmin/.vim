@@ -11,12 +11,12 @@ set mouse=a
 set encoding=utf-8
 
 set number                                          "显示行号
-""set relativenumber                                "显示相对行号
+set relativenumber                                 "显示相对行号
 set showmatch                                       "括号匹配
 set laststatus=2                                    "总是显示状态栏(0不显示,1多窗口时显示,2总是显示
 set ruler                                           "显示当前光标位置
-""set cul                                           "显示当前行
-""set cuc                                           "显示当前列
+"set cul                                            "显示当前行
+"set cuc                                            "显示当前列
 
 set tabstop=4                                       "Tab长度为4个空格
 set expandtab                                       "tab键为空格
