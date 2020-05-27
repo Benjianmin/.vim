@@ -11,7 +11,7 @@ set mouse=a
 set encoding=utf-8
 
 set number                                          "显示行号
-set relativenumber                                 "显示相对行号
+set relativenumber                                  "显示相对行号
 set showmatch                                       "括号匹配
 set laststatus=2                                    "总是显示状态栏(0不显示,1多窗口时显示,2总是显示
 set ruler                                           "显示当前光标位置
@@ -43,4 +43,4 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"            "细细的一条,而不是�
 
 set nobackup
 
-
+source ~/.vim/snippits.vim                          "link the file name snippits.vim some vimset about markdown
