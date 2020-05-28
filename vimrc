@@ -6,6 +6,7 @@
 "                                                     
 
 
+
 set nocompatible
 set mouse=a
 set encoding=utf-8
@@ -18,10 +19,10 @@ set ruler                                           "显示当前光标位置
 "set cul                                            "显示当前行
 "set cuc                                            "显示当前列
 
-set tabstop=4                                       "Tab长度为4个空格
+set tabstop=2                                       "Tab长度为4个空格
+set softtabstop=2
+set shiftwidth=2                                    "shitf缩进长度为4个空格
 set expandtab                                       "tab键为空格
-set softtabstop=4
-set shiftwidth=4                                    "shitf缩进长度为4个空格
 set autoindent                                      "继承前一行的缩进方式(适用多行注释) 
 filetype indent on                                  "文件类型检索并自动缩进
 syntax on                                           "语法高亮
@@ -34,7 +35,7 @@ exec "nohlsearch"
 set incsearch                                       "搜索时边输入边匹配
 set ignorecase
 set smartcase
-set scrolloff=7
+set scrolloff=5
 set clipboard=unnamed
 
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"            "在Alacritty下在光标
@@ -44,3 +45,24 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"            "细细的一条,而不是�
 set nobackup
 
 source ~/.vim/snippits.vim                          "link the file name snippits.vim some vimset about markdown
+
+" ===
+" === Restore Cursor Position
+" ===
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+
+
+
+call plug#begin('~/.vim/plugged')
+"Markdown preview
+Plug 'iamcco/markdown-preview.vim', { 'do': { -> mkdp#util#install() }, 'for' :['markdown', 'vim-plug'] }
+call plug#end()
+
+
+
+
+nmap <silent> <F8> <Plug>MarkdownPreview        " for normal mode
+imap <silent> <F8> <Plug>MarkdownPreview        " for insert mode
+nmap <silent> <F9> <Plug>StopMarkdownPreview    " for normal mode
+imap <silent> <F9> <Plug>StopMarkdownPreview    " for insert mode
